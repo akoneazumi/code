@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Someone Special ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size:400% 400%;
+  animation: gradientMove 10s ease infinite;
+  color:white;
+}
+
+/* Animated Gradient */
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Floating Hearts */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation: floatUp 6s linear infinite;
+  opacity:0.7;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);}
+  100%{transform:translateY(-110vh) scale(1.5);}
+}
+
+/* Main Card */
+.card{
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:25px;
+  width:420px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  transition:0.5s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* Heading */
+h1{
+  font-family:'Dancing Script', cursive;
+  font-size:48px;
+  margin-bottom:20px;
+  text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+/* Sub text */
+p{
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+/* Button */
+button{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  background:white;
+  color:#ff4b7d;
+  transition:0.4s;
+  font-weight:600;
+}
+
+button:hover{
+  background:#ff4b7d;
+  color:white;
+  transform:scale(1.1);
+  box-shadow:0 0 20px #ff4b7d;
+}
+
+/* Hidden Message */
+#message{
+  margin-top:20px;
+  opacity:0;
+  transition:1s;
+}
+
+.show{
+  opacity:1 !important;
+}
+
+/* Sparkle Cursor */
+body:hover{
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Birthday, Hemaa Sivakumar😁❤️🎂</h1>
+  <p>
+    Before the world celebrates you today…  
+    I just want to say something from my heart.
+  </p>
+  <button onclick="reveal()">Click to Open 💖</button>
+
+  <div id="message">
+    <p>
+      The day you were born, the world became softer, brighter, and more beautiful.  
+      Somewhere between our smiles and small talks…  
+      you became someone truly special to me.  
+      <br><br>
+      I’m really grateful you exist. 🌸
+    </p>
+  </div>
+</div>
+
+<script>
+function reveal(){
+  document.getElementById("message").classList.add("show");
+}
+
+/* Generate Floating Hearts */
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },6000);
+},400);
+</script>
+
+</body>
+</html>
